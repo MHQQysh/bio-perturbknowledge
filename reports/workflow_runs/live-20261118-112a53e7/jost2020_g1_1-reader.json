@@ -1,0 +1,14 @@
+{
+  "result": {
+    "record_id": "jost2020_g1_1",
+    "shape": [
+      952,
+      33694
+    ],
+    "groups": {
+      "control": 779,
+      "perturbed": 173
+    }
+  },
+  "exit_code": 0
+}

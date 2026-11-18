@@ -1,0 +1,10 @@
+.bootstrap/
+.venv/
+__pycache__/
+*.pyc
+data/GSM4219576/*.gz
+data/GSM4219576/*.part
+downloads/
+reports/workflow_runs/classroom-live/
+.env*
+*Key.txt

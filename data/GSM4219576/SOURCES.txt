@@ -1,0 +1,6 @@
+GEO: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4219576
+Study: https://pmc.ncbi.nlm.nih.gov/articles/PMC7545139/
+Sample: LUHMES Run 2, GSM4219576. Author-provided files from GEO.
+GSM4219576_Run2_matrix_fresh.mtx.gz is a local filename for GSM4219576_Run2_matrix.mtx.gz.
+Source files: https://ftp.ncbi.nlm.nih.gov/geo/samples/GSM4219nnn/GSM4219576/suppl/
+SHA256SUMS.txt records the bundled gzip inputs.

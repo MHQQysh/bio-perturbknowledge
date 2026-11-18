@@ -1,0 +1,11 @@
+{
+  "feedback": {
+    "reviewed": "reports/atlas.json, dataset and scale notes",
+    "closed_as": "unresolved; no analysis or export triggered",
+    "field": "matrix.scale",
+    "status": "display_only",
+    "record_id": "replogle2022_TARDBP_demo",
+    "result": "Existing archive supplies a filename and integer values but does not establish the transformation",
+    "requested_evidence": "Author processing documentation identifying the transformation of X in the exact release"
+  }
+}

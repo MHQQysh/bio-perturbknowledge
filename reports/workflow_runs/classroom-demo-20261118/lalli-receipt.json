@@ -1,0 +1,61 @@
+{
+  "source_matrix_shape": [
+    4683,
+    33756
+  ],
+  "single_label_overlap": 2436,
+  "comparisons": [
+    {
+      "record_id": "lalli2020_Run2_ADNP",
+      "shape": [
+        448,
+        33756
+      ],
+      "n_perturbed": 185,
+      "n_control": 263,
+      "checks": {
+        "target_annotation_checked": true,
+        "control_annotation_checked": true,
+        "context_fields_checked": {
+          "sample": true
+        }
+      },
+      "decision": "admitted_for_descriptive_analysis"
+    },
+    {
+      "record_id": "lalli2020_Run2_ARID1B",
+      "shape": [
+        393,
+        33756
+      ],
+      "n_perturbed": 130,
+      "n_control": 263,
+      "checks": {
+        "target_annotation_checked": true,
+        "control_annotation_checked": true,
+        "context_fields_checked": {
+          "sample": true
+        }
+      },
+      "decision": "admitted_for_descriptive_analysis"
+    },
+    {
+      "record_id": "lalli2020_Run2_CHD8",
+      "shape": [
+        542,
+        33756
+      ],
+      "n_perturbed": 279,
+      "n_control": 263,
+      "checks": {
+        "target_annotation_checked": true,
+        "control_annotation_checked": true,
+        "context_fields_checked": {
+          "sample": true
+        }
+      },
+      "decision": "admitted_for_descriptive_analysis"
+    }
+  ],
+  "paper_day_disagreement": "Run 2 GEO sample says day 8, article describes 7 days at study level; use sample metadata and record both."
+}
