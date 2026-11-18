@@ -43,12 +43,17 @@ h2{font-size:clamp(26px,3.25vw,40px);letter-spacing:-.038em;margin-bottom:9px}h3
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.shell{display:block;background:none}.rail,.quick{display:none}main{padding:0}.wrap{max-width:none}body{background:#fff;font-size:11pt}section{break-before:auto}.card,.skill,table,figure{break-inside:avoid}}
 </style>
+<style>
+.page-nav{padding-bottom:12px;border-bottom:1px solid #39525a}
+.rail .page-nav+.guide-toc{margin-top:-14px}
+.guide-toc a{font-size:12px;padding-block:6px}
+.guide-toc a b{font-size:10px}
+</style>
 </head>
 <body>
 <div class="shell">
 <aside class="rail"><div class="brand"><b>ECE449<br>Project 1</b><span>本地课堂演示</span></div>
-<nav aria-label="导航"><a href="#classroom-demo" aria-current="location"><b>01</b> 运行台与抽查</a>
-<a href="#portable-info"><b>02</b> 使用说明</a></nav></aside>
+<nav class="page-nav" aria-label="页面切换"><a href="ECE449-project-progress.html#classroom-demo" aria-current="page"><b>01</b> 课堂演示</a><a href="task-guide.html#overview"><b>02</b> 任务讲解</a></nav></aside>
 <main><div class="wrap">
   <section id="classroom-demo">
     <div class="section-label">WINDOWS / LOCAL RUN</div><h2>课堂演示运行台</h2>

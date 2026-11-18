@@ -1,0 +1,8 @@
+case,origin,expected_admit,reader_only_admit,full_gate_admit,checks_failed,tool_exit_code
+jost2020_g1_1,archived,True,True,True,,0
+jost2020_g1_2,archived,True,True,True,,0
+jost2020_g1_3,archived,True,True,True,,0
+replogle2022_TARDBP_demo,archived,False,True,False,scale_provenance,0
+remove_evidence,injected,False,True,False,located_evidence,1
+alter_control_count,injected,False,True,False,group_sizes_match,1
+swap_receipt_identity,injected,False,True,False,fresh_reader_success,1

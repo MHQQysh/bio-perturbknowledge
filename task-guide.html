@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ECE449 项目任务讲解</title>
+<link rel="stylesheet" href="presentation/classroom-live.css">
+<script src="scripts/classroom-live.js" defer></script>
+<style>
+:root{color-scheme:light;--paper:#f6f3ec;--white:#fffcf6;--ink:#132e38;--text:#273f47;--muted:#52646b;--rail:#132d36;--rail-muted:#bfd0d3;--line:#d8dfd8;--teal:#087b72;--light-teal:#e7f2eb;--gold:#795821;--gold-bg:#f4ebd6;--max:1130px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--text);font:16px/1.67 "Microsoft YaHei UI","PingFang SC","Noto Sans CJK SC",sans-serif}
+::selection{background:#b7dfcd;color:var(--ink)}a{color:#086960;text-underline-offset:4px}a:hover{color:#034d48}a:focus-visible{outline:2px solid #2cab9b;outline-offset:4px}
+.shell{--rail-width:246px;display:grid;grid-template-columns:var(--rail-width) minmax(0,1fr);min-height:100vh;background:linear-gradient(to right,var(--rail) 0 var(--rail-width),transparent var(--rail-width))}
+.rail{position:sticky;top:0;height:100vh;background:var(--rail);color:#f7f7ee;padding:32px 18px 24px;display:flex;flex-direction:column;gap:29px;overflow:auto}
+.brand{padding:0 8px}.brand b{display:block;color:#f5fff8;font:700 26px/1.12 "Segoe UI","Microsoft YaHei UI",sans-serif;letter-spacing:-.45px}.brand span{display:block;margin-top:10px;color:var(--rail-muted);font-size:12px;letter-spacing:.07em}
+nav{display:grid;gap:3px}nav a{display:flex;gap:11px;align-items:center;padding:9px 10px;border-left:2px solid transparent;text-decoration:none;color:#dbe8e5;font-size:13px}
+nav a b{color:#82a9a7;font:600 11px/1 "Consolas",monospace}nav a:hover,nav a[aria-current]{background:#24434b;color:#fff}nav a[aria-current]{border-left-color:#5fe0c0}
+.rail-foot{margin-top:auto;padding:12px 8px 0;border-top:1px solid #39525a;color:var(--rail-muted);font-size:11px}
+main{min-width:0;padding:0 clamp(24px,4.7vw,68px)}.wrap{max-width:var(--max);margin:0 auto}.hero{padding:36px 0 39px}
+.eyebrow,.section-label,.key{font:700 11px/1.45 "Consolas","Microsoft YaHei UI",monospace;letter-spacing:.11em;text-transform:uppercase}
+.eyebrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:19px;border-bottom:1px solid var(--line);color:var(--teal)}
+.stamp{color:var(--muted);letter-spacing:.03em}h1,h2,h3{margin:0;color:var(--ink);line-height:1.25;font-weight:760}
+h1{font-size:clamp(34px,4.35vw,63px);letter-spacing:-.055em;margin:28px 0 13px}.hero .intro{max-width:760px;margin:0;font-size:17px;color:var(--muted)}
+.quick{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 23px}.button{font-weight:650;display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;border:1px solid var(--line);border-radius:5px;text-decoration:none;background:var(--white);font-size:13px}.button.primary{background:var(--teal);color:#fff;border-color:var(--teal)}
+.metric-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.metric{background:var(--white);border:1px solid var(--line);border-radius:7px;padding:12px 14px;min-width:0}.metric strong{display:block;font:750 clamp(25px,3.2vw,38px)/1 "Segoe UI",sans-serif;letter-spacing:-.045em;color:var(--ink);white-space:nowrap}.metric span{font-size:12px;color:var(--muted);display:block;margin-top:7px}
+.source{font-size:12px;color:var(--muted);margin:9px 0 0}.source a{margin-right:9px}
+section{border-top:1px solid var(--line);padding:38px 0;scroll-margin-top:15px}.section-label{color:var(--teal);margin-bottom:6px}
+h2{font-size:clamp(26px,3.25vw,40px);letter-spacing:-.038em;margin-bottom:9px}h3{font-size:19px;margin-bottom:7px}p{margin:0 0 10px}.lead{max-width:850px;color:var(--muted);margin-bottom:18px}
+.grid2,.grid3{display:grid;gap:12px;align-items:start}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{min-width:0;background:var(--white);border:1px solid var(--line);border-radius:7px;padding:17px}.card p:last-child{margin-bottom:0}.key{display:block;color:var(--teal);margin-bottom:7px}
+.scroll-table{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:7px}table{border-collapse:collapse;width:100%;font-size:13px;text-align:left}th,td{padding:9px 11px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#e8ece6;color:var(--ink);font-weight:700}tbody tr:last-child td{border-bottom:0}td:first-child{font-weight:650;color:var(--ink)}
+.weights{display:grid;grid-template-columns:40fr 35fr 25fr;gap:1px;overflow:hidden;margin:16px 0 5px;border-radius:6px}.weights div{padding:10px 13px;background:#23545a;color:#fff;font-size:12px}.weights div:nth-child(2){background:#316f68}.weights div:nth-child(3){background:#46645e}.weights b{margin-right:8px;font-size:19px;display:inline-block}
+.flow{list-style:none;padding:0;display:grid;gap:7px;margin:0 0 12px}.flow li{display:grid;grid-template-columns:46px minmax(0,1fr);gap:11px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:6px;padding:11px 13px}.flow .step{width:35px;height:35px;display:grid;place-items:center;border-radius:50%;background:var(--light-teal);color:#076b60;font:700 13px "Consolas",monospace}.flow strong{color:var(--ink);display:block;line-height:1.2}.flow small{color:var(--muted);font-size:13px}
+.branch{background:var(--light-teal);border-left:3px solid var(--teal);padding:13px 14px;margin-top:12px;border-radius:0 5px 5px 0;font-size:14px}.branch strong{color:var(--ink)}.branch p:last-child{margin-bottom:0}
+.skill{background:#173640;color:#e7f2ef;border-radius:7px;overflow:hidden;min-height:100%;font-size:14px}.skill-head{padding:13px 16px;background:#224650;display:flex;align-items:center;justify-content:space-between;gap:8px}.skill-head code{color:#fff;font-weight:700}.skill-head a{color:#cafbee;font-size:12px;white-space:nowrap}.skill-body{padding:15px 16px}.skill h3{color:#fff;font-size:21px}.skill .key{color:#83d7c2}.skill p{margin-bottom:10px}.skill p:last-child{margin-bottom:0}.skill code{overflow-wrap:anywhere}
+.case{margin-bottom:12px}.case .grid2{margin-top:11px}.case-meta{color:var(--muted);font-size:13px}.tag{display:inline-block;font-size:11px;font-weight:700;white-space:nowrap;background:var(--light-teal);color:#0c6658;border-radius:4px;padding:1px 6px}.tag.pending{background:var(--gold-bg);color:var(--gold)}.case-head{display:flex;justify-content:space-between;gap:9px;align-items:flex-start}
+.exp{border-top:3px solid #9aaea4}.exp.best{border-top-color:var(--teal)}.exp .num{font:750 35px/1 "Segoe UI",sans-serif;letter-spacing:-.055em;color:#0b6d62;display:block;margin:12px 0 6px}.exp p{font-size:13px}.exp h3{font-size:17px}.exp a{font-size:12px}
+.figs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.figs figure{margin:0;background:var(--white);border:1px solid var(--line);border-radius:6px;overflow:hidden}.figs img{display:block;width:100%;aspect-ratio:16/9;object-fit:contain;background:#eeeae0}.figs figcaption{padding:9px 11px;font-size:12px;color:var(--muted)}.figs b{color:var(--ink);display:block}
+.links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:8px 0 0}.links a{display:block;padding:9px 11px;background:var(--white);border:1px solid var(--line);border-radius:5px;font-size:13px;text-decoration:none}.links a:hover{text-decoration:underline}
+.closeout{padding:10px 0 34px;color:var(--muted);font-size:12px}code{font-family:Consolas,"Microsoft YaHei UI",monospace;font-size:.95em;overflow-wrap:anywhere}
+@media(max-width:950px){.shell{--rail-width:190px}.rail{padding-inline:12px}.grid3,.figs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:690px){.shell{display:block;background:none}.rail{position:static;height:auto;gap:13px;padding:16px}.brand b{display:inline;font-size:20px}.brand span{margin-top:3px}nav{grid-template-columns:repeat(2,minmax(0,1fr))}nav a{padding:5px 8px}.rail-foot{display:none}main{padding-inline:16px}.hero{padding-top:20px}.metric-row{grid-template-columns:repeat(2,minmax(0,1fr))}.grid2,.grid3,.figs,.links{grid-template-columns:1fr}.weights div{padding:8px}.weights b{display:block}.eyebrow{font-size:10px}section{padding:29px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.shell{display:block;background:none}.rail,.quick{display:none}main{padding:0}.wrap{max-width:none}body{background:#fff;font-size:11pt}section{break-before:auto}.card,.skill,table,figure{break-inside:avoid}}
+</style>
+<style>
+.page-nav{padding-bottom:12px;border-bottom:1px solid #39525a}
+.rail .page-nav+.guide-toc{margin-top:-14px}
+.guide-toc a{font-size:12px;padding-block:6px}
+.guide-toc a b{font-size:10px}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="rail">
+  <div class="brand"><b>ECE449<br>Project 1</b><span>单细胞扰动数据 · 进展汇报</span></div>
+  <nav class="page-nav" aria-label="页面切换"><a href="ECE449-project-progress.html#classroom-demo"><b>01</b> 课堂演示</a><a href="task-guide.html#overview" aria-current="page"><b>02</b> 任务讲解</a></nav><nav class="guide-toc" aria-label="任务讲解目录">
+    <a href="#overview" aria-current="location"><b>00</b> 项目概览</a>
+    <a href="#requirements"><b>01</b> 课程要求与评分</a>
+    <a href="#workflow"><b>02</b> 完整工作流</a>
+    <a href="#skills"><b>03</b> 两个 Skill 和工具</a>
+    <a href="#experiments"><b>04</b> 实跑案例与实验</a>
+    <a href="#delivery"><b>05</b> 交付物与完成进度</a>
+    <a href="#classroom-demo"><b>06</b> 课堂演示与现场抽查</a>
+    <a href="#screens"><b>07</b> 进展截图与答辩</a>
+  </nav>
+  <div class="rail-foot">ECE449 · 2026 年 11 月 18 日<br>依据任务书与项目运行产物</div>
+</aside>
+<main><div class="wrap">
+  <header class="hero" id="overview">
+    <div class="eyebrow"><span>COURSE PROJECT / PROGRESS REVIEW</span><span class="stamp">2026.11.18</span></div>
+    <h1>从论文到可复跑的<br>单细胞扰动记录</h1>
+    <p class="intro">Agent 串起论文、补充材料和公开表达数据。两项 Skill 负责提取关联与核验准入，工具负责真实读取、比较和导出。核心流程已实跑，独立新材料上的 Skill 效果仍待测。</p>
+    <div class="quick"><a class="button primary" href="#workflow">查看完整流程 ↓</a><a class="button" href="#delivery">核对提交清单</a><a class="button" href="#classroom-demo">模拟现场抽查</a></div>
+    <div class="metric-row" aria-label="归档与新增演示进度">
+      <div class="metric"><strong>33</strong><span>候选筛选记录</span></div>
+      <div class="metric"><strong>11</strong><span>归档研究完成提取</span></div>
+      <div class="metric"><strong>13</strong><span>归档比较通过真实读取</span></div>
+      <div class="metric"><strong>+3</strong><span>Lalli 独立验收条件</span></div>
+    </div>
+    <p class="source">归档 13 条比较来自 10 项研究。新增 Lalli 条件使用独立验收目录。 <a href="data/project.json">归档汇总</a><a href="reports/workflow_runs/acceptance-20261118/验收记录.md">新增验收</a></p>
+  </header>
+
+  <section id="requirements">
+    <div class="section-label">01 / TASK BRIEF</div><h2>课程要求与评分</h2>
+    <p class="lead">任务书要求设计可复用的 Agent 工作流，把实验描述联接到同一比较的扰动细胞、对照细胞和矩阵，并把作者报告的结论与项目独立计算分开记录。</p>
+    <div class="scroll-table"><table>
+      <thead><tr><th scope="col">任务书要求</th><th scope="col">本项目对应证据</th></tr></thead>
+      <tbody>
+        <tr><td>筛选 ≥30 篇，至少 10 项合格研究做实验提取</td><td>保留 33 项筛选依据，归档 11 项研究的提取与文件核验，10 项的选定条件已联接。</td></tr>
+        <tr><td>至少 2 个可执行自定义 Tool、2 项实际用到的 Skill</td><td>细胞与矩阵读取、比较记录核验可执行。Agent 实际用过 <code>retrieve-link</code> 与 <code>validate-compare-export</code>。</td></tr>
+        <tr><td>结构化记录、Schema、证据定位、读取程序</td><td>记录串起样本、扰动、对照、表达矩阵和来源。归档证据索引有 91 项定位。</td></tr>
+        <tr><td>≥3 个条件比较，≥1 项对照或消融</td><td>三组 Jost 实算及换对照比较，另做准入规则消融和 Agent 两轮盲测。</td></tr>
+        <tr><td>≥1 条 Input / Target 转换示例</td><td>Jost 和 Lalli 各导出三条示例，核对字段白名单、基因对齐及共享对照分组。</td></tr>
+        <tr><td>课堂端到端演示与抽查 2–3 条记录</td><td>已有检索入口、Lalli 新研究实跑和逐条证据。课堂需现场展示并解释老师抽到的记录。</td></tr>
+      </tbody>
+    </table></div>
+    <div class="weights" aria-label="课程评分权重"><div><b>40%</b>Agent、Tool 与 Skill</div><div><b>35%</b>项目报告</div><div><b>25%</b>展示与问答</div></div>
+    <p class="source">依据课程原始任务书 <cite>AI Agent-Based Construction of CRISPRi Perturbation Knowledge and Data</cite>，II.2、II.3 与 III。</p>
+  </section>
+
+  <section id="workflow">
+    <div class="section-label">02 / WORKFLOW</div><h2>一条记录如何走完整个流程</h2>
+    <ol class="flow">
+      <li><span class="step">01</span><div><strong>检索与初筛</strong><small>限定公开 CRISPRi 与单细胞表达，保留检索结果、来源以及纳入或排除理由。</small></div></li>
+      <li><span class="step">02</span><div><strong>从研究材料提取到单个比较</strong><small>从论文、补充材料和公开样本提取实验背景、目标、对照、尺度和证据定位。</small></div></li>
+      <li><span class="step">03</span><div><strong>联接真实细胞与表达矩阵</strong><small>用作者标签关联细胞条码。比较记录引用具体样本、扰动组、对照组和矩阵。</small></div></li>
+      <li><span class="step">04</span><div><strong>核验并决定是否准入</strong><small>检查条码存在且唯一、组间互斥、数量、目标和对照标签、样本或批次、矩阵尺度与证据。</small></div></li>
+      <li><span class="step">05</span><div><strong>计算响应并导出 Input / Target</strong><small>对有计数依据和可比对照的记录计算表达差，按基因顺序导出模型样例并校验。</small></div></li>
+      <li><span class="step">06</span><div><strong>复跑、消融与验收</strong><small>保存运行日志和文件指纹，用同轮产物独立复算，并测试准入规则和 Skill 的作用。</small></div></li>
+    </ol>
+    <div class="branch"><p><strong>核验形成回路。</strong> 证据不足时退回 Skill 1，指出缺失字段和要看的资料。标签已联接但尺度不明时可保留展示。补到证据后重新判定。</p></div>
+  </section>
+
+  <section id="skills">
+    <div class="section-label">03 / AGENT DESIGN</div><h2>两个 Skill 如何分工</h2>
+    <p class="lead">Agent 负责选择材料、调用工具和决定退回。Skill 规定工作顺序和判断原则，Tool 完成可重复的读取与检查。</p>
+    <div class="grid2">
+      <article class="skill"><div class="skill-head"><code>retrieve-link v1.1</code><a href="skills/retrieve-link/SKILL.md">查看规范 ↗</a></div><div class="skill-body"><span class="key">Skill 1</span><h3>检索、提取与关联</h3><p>输入候选和来源。区分研究级与比较级信息，用作者标签把细胞联接到矩阵，为具体字段保存直接证据。</p><p><b>Tool 1</b> · <code>read_record.py</code> 读取实际细胞、检查分组并返回矩阵尺寸与回执。</p><p><b>移交</b> · 候选记录、来源定位、数据引用、读取回执、仍缺的字段。</p></div></article>
+      <article class="skill"><div class="skill-head"><code>validate-compare-export v1.1</code><a href="skills/validate-compare-export/SKILL.md">查看规范 ↗</a></div><div class="skill-body"><span class="key">Skill 2</span><h3>验证、比较与导出</h3><p>接收证据包，分别判断联接可用性和分析可用性，决定通过、仅展示或退回补证。</p><p><b>Tool 2</b> · <code>verify_records.py</code> 与 <code>check_skill_handoff.py</code> 检查两组关系、读取状态和证据一致性。</p><p><b>输出</b> · 准入决定、分析与导出文件、白名单及产物校验。<a style="color:#b8fff0" href="skills/workflow-contract.md">双向交接协议</a></p></div></article>
+    </div>
+    <p class="source">1.1 将字段的直接引用与背景分开，复合判定保留各项必要依据。<a href="reports/workflow_runs/agent-blind-retest-20261118/复测报告.md">改版依据与复测</a></p>
+  </section>
+
+  <section id="experiments">
+    <div class="section-label">04 / RUNS AND EXPERIMENTS</div><h2>做了哪些实跑和比较</h2>
+    <article class="card case">
+      <div class="case-head"><h3>Lalli · 新论文材料到数据的端到端验收</h3><span class="tag">已验收</span></div>
+      <p class="case-meta">从论文 Fig. 2 与 GEO 样本 GSM4219576 出发，重新联接作者标签与表达矩阵，真实读取三条新记录，导出逐基因响应与模型示例。</p>
+      <div class="scroll-table"><table>
+        <thead><tr><th scope="col">条件</th><th scope="col">扰动细胞</th><th scope="col">同样本非靶向对照</th><th scope="col">比较矩阵</th></tr></thead>
+        <tbody><tr><td>ADNP</td><td>185</td><td>263</td><td>448 × 33,756</td></tr><tr><td>ARID1B</td><td>130</td><td>263</td><td>393 × 33,756</td></tr><tr><td>CHD8</td><td>279</td><td>263</td><td>542 × 33,756</td></tr></tbody>
+      </table></div>
+      <p class="source">Input / Target 均为 3 × 33,756。论文总体叙述与 GEO 样本天数有差异，记录保留两处来源，三组只作同样本内描述性比较。 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7545139/">原论文</a><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4219576">GEO</a><a href="reports/workflow_runs/acceptance-20261118/lalli-validation.json">同轮校验</a></p>
+    </article>
+    <div class="grid2 case">
+      <article class="card"><div class="case-head"><h3>Jost · 三条件响应重算</h3><span class="tag">已复跑</span></div><p>三个条件共用 779 个对照细胞。对每个细胞做 CP10K 和 log1p，计算扰动组均值减对照组均值。Input 用实验前字段和对照基线，Target 保存响应。</p><p class="source">三组 Input / Target 各为 3 × 33,694。 <a href="reports/workflow_runs/live-20261118-112a53e7/response_validation.json">逐基因验证</a></p></article>
+      <article class="card"><div class="case-head"><h3>Replogle · 核验退回</h3><span class="tag pending">仅展示</span></div><p>展示子集可读取到 2 个扰动与 3 个对照，表达尺度仍缺直接证据。对应比较停在展示状态，退回补查尺度来源。</p><p class="source">Gogate 候选另缺比较级标签和匹配对照。 <a href="reports/workflow_runs/live-20261118-112a53e7/decision.json">准入与退回回执</a></p></article>
+    </div>
+    <div class="grid3">
+      <article class="card exp"><span class="key">对照敏感性</span><h3>换对照后方向是否变化</h3><strong class="num">30 次</strong><p>3 条 Jost 条件各换用 10 个对照子集。目标表达变化方向在这 30 次重算中保持一致。</p><a href="reports/response/control_sensitivity.csv">查看重算数据 ↗</a></article>
+      <article class="card exp"><span class="key">准入规则消融</span><h3>完整核验能拦住什么</h3><strong class="num">4 → 0</strong><p>同样 7 例，误放数由 4 降到 0。包含 1 个真实缺证和 3 个人工故障，3 个合格案例保留。</p><a href="reports/workflow_runs/acceptance-20261118/gate-ablation.csv">查看逐例记录 ↗</a></article>
+      <article class="card exp best"><span class="key">Agent 匿名复测</span><h3>新版证据引用更精确</h3><strong class="num">26 → 30</strong><p>满分 30。基线和原版同轮均为 26，新版 30。三组事实均 35/35，准入均 5/5。</p><a href="reports/workflow_runs/agent-blind-retest-20261118/复测报告.md">查看复测报告 ↗</a></article>
+    </div>
+    <p class="source">盲测首轮严格证据定位为基线 26/30、双 Skill 24/30。改版和复测复用同一批五例，每组运行一次。对新论文自行找证据的效果尚无独立结果。</p>
+  </section>
+
+  <section id="delivery">
+    <div class="section-label">05 / SUBMISSION CHECKLIST</div><h2>要提交什么，当前到哪一步</h2>
+    <div class="scroll-table"><table>
+      <thead><tr><th scope="col">任务书要求提交</th><th scope="col">当前状态</th><th scope="col">项目文件</th></tr></thead>
+      <tbody>
+        <tr><td>完整代码、依赖、运行说明</td><td><span class="tag">有源码与说明</span></td><td><a href="scripts/read_record.py">读取工具</a> · <a href="requirements.txt">依赖</a> · <a href="README.md">执行说明</a></td></tr>
+        <tr><td>结构化记录、字段说明和读取程序</td><td><span class="tag">已验收</span></td><td><a href="data/records.json">归档记录预览</a> · <a href="data/response_schema.json">响应 Schema</a> · <a href="reports/workflow_runs/acceptance-20261118/records.json">Lalli 记录预览</a></td></tr>
+        <tr><td>证据索引、可访问的数据文件或链接</td><td><span class="tag">可回查</span></td><td><a href="reports/evidence_index.json">归档索引</a> · <a href="reports/workflow_runs/acceptance-20261118/lalli-handoff.json">新研究证据与数据来源预览</a></td></tr>
+        <tr><td>模型 Input / Target 示例</td><td><span class="tag">已导出并校验</span></td><td><a href="reports/model_examples.json">Jost 示例</a> · <a href="ECE449-project-progress.html#classroom-demo">现场生成 Lalli 数组</a></td></tr>
+        <tr><td>项目报告与 PPT</td><td><span class="tag pending">已有版本，需汇入最新验收</span></td><td><a href="#overview">项目报告讲解</a> · <a href="reports/crispri-project.pptx">现有 PPT</a> · <a href="presentation/academic-review/skill-first-execution-plan.md">新版讲述结构</a></td></tr>
+        <tr><td>课堂端到端演示和现场抽查</td><td><span class="tag pending">主线可演示，待课堂验收</span></td><td><a href="reports/workflow_runs/acceptance-20261118/验收记录.md">实跑索引</a> · <a href="项目完成逻辑与讲稿.md">讲稿底稿</a></td></tr>
+      </tbody>
+    </table></div>
+    <div class="branch"><p><strong>当前结论。</strong> 数据与工作流已有真实验收。课堂提交前需统一报告、PPT 和最新日志，确认课程平台的提交格式。独立新材料上的盲测属于进一步验证。</p></div>
+  </section>
+
+  <section id="classroom-demo">
+    <div class="section-label">06 / CLASSROOM DEMO</div><h2>课堂演示运行台</h2>
+    <p class="lead">点启动后，课堂工作流会检索 PubMed，关联 Lalli 的公开数据，核验、计算并导出。点击任一条轨迹查看真实调用和回执。</p>
+    <div class="live-review">
+      <h3>现场抽查</h3>
+      <p>先选研究，再选一条记录。可查看本轮 Lalli 结果、归档 Jost 实算，以及 Replogle 退回案例。</p>
+      <div class="audit-picker">
+        <label>研究<select id="audit-study"><option value="lalli">Lalli · 课堂实跑</option><option value="jost">Jost · 归档实算</option><option value="replogle">Replogle · 退回补证</option></select></label>
+        <label>比较记录<select id="audit-record"></select></label>
+        <button class="live-button primary" id="audit-open" type="button">打开记录</button>
+        <button class="live-button" id="live-draw" type="button">随机抽查</button>
+      </div>
+      <p id="audit-scope" class="audit-scope" aria-live="polite"></p>
+    </div>
+    <div class="live-shell">
+      <header class="live-header">
+        <div><span class="live-brand">ECE449 / 运行轨迹</span><span class="live-run-id" id="live-run-id"></span><span class="live-run-id" id="live-run-provider"></span></div>
+        <span class="live-status" id="live-status" role="status">连接运行台</span>
+      </header>
+      <div class="live-request">
+        <div><h3>从论文检索到模型样例</h3><p>Lalli 课堂案例 · 联网检索论文 · 矩阵在这台电脑计算</p></div>
+        <button class="live-button primary" id="live-start" type="button" disabled>▶ 启动演示</button>
+        <a class="live-button primary" id="live-open" hidden href="http://127.0.0.1:8895/#classroom-demo">打开实时运行台 ↗</a>
+      </div>
+      <div class="live-settings">
+        <label>联网查找论文与来源
+          <input id="live-search-query" type="text" maxlength="300" value="Lalli neuronal differentiation" aria-label="论文主题或作者">
+        </label>
+        <button id="live-search-button" class="live-button" type="button">联网搜索</button>
+        <span id="live-search-status" role="status">检索结果和下载文件保存在项目本地 downloads。</span>
+        <div id="live-search-results" class="live-actions"></div>
+      </div>
+      <div class="live-settings" id="live-settings">
+        <label>运行模式<select id="live-provider"><option value="deepseek">DeepSeek API</option><option value="local">课堂固定流程</option></select></label>
+        <div class="live-provider-fields" id="live-provider-fields">
+          <label>模型<select id="live-model"><option value="deepseek-flash">DeepSeek Flash</option><option value="deepseek-v4-pro">DeepSeek V4 Pro</option></select></label>
+          <label>DeepSeek API Key<input id="live-api-key" type="password" placeholder="在此输入你自己的 Key" autocomplete="off" spellcheck="false" maxlength="512"></label>
+          <p>DeepSeek 审核公开论文和 GEO 样本。Key 仅用于本轮请求，启动后清空，日志中不保存。</p>
+        </div>
+      </div>
+      <p class="live-notice" id="live-notice" hidden></p>
+      <div class="live-trace-label"><span>执行轨迹</span><span id="live-tally"></span></div>
+      <ol class="live-trace" id="live-trace" aria-label="执行轨迹"><li class="live-empty">等待启动。真实的 Skill、搜索与工具回执会依次出现在这里。</li></ol>
+      <div class="live-output" id="live-result" hidden>
+        <h3>本轮产物</h3>
+        <p id="live-result-text"></p>
+        <div id="live-result-records" class="live-actions"></div>
+        <div id="live-result-files" class="live-artifact-groups"></div>
+      </div>
+    </div>
+    <dialog class="live-dialog" id="live-dialog" aria-labelledby="live-dialog-title">
+      <header><div><span class="live-brand" id="live-dialog-kind"></span><h3 id="live-dialog-title"></h3></div><form method="dialog"><button type="submit" class="live-button" aria-label="关闭详情">关闭 ×</button></form></header>
+      <div id="live-dialog-content"></div>
+    </dialog>
+    <dialog class="live-dialog receipt-dialog" id="receipt-dialog" aria-labelledby="receipt-dialog-title">
+      <header><div><span class="live-brand">核验依据</span><h3 id="receipt-dialog-title"></h3></div><form method="dialog"><button type="submit" class="live-button" aria-label="关闭回执">关闭回执 ×</button></form></header>
+      <div id="receipt-dialog-content"></div>
+    </dialog>
+  </section>
+
+  <section id="screens">
+    <div class="section-label">07 / SHOWCASE</div><h2>进展截图与答辩顺序</h2>
+    <p class="lead">建议现场走一遍 Lalli 的论文与 GEO 证据、候选交接、准入回执和数组校验，再展示 Replogle 被退回的原因，最后讲清三类比较各自验证了什么。</p>
+    <div class="figs">
+      <figure><a href="reports/presentation-slides/slide-03.jpg"><img src="reports/presentation-slides/slide-03.jpg" alt="已有答辩第 3 页截图"></a><figcaption><b>已有答辩文稿 · 03</b>点击查看原图</figcaption></figure>
+      <figure><a href="reports/presentation-slides/slide-07.jpg"><img src="reports/presentation-slides/slide-07.jpg" alt="已有答辩第 7 页截图"></a><figcaption><b>已有答辩文稿 · 07</b>点击查看原图</figcaption></figure>
+      <figure><a href="reports/presentation-slides/slide-09.jpg"><img src="reports/presentation-slides/slide-09.jpg" alt="已有答辩第 9 页截图"></a><figcaption><b>已有答辩文稿 · 09</b>点击查看原图</figcaption></figure>
+    </div>
+    <div class="links">
+      <a href="reports/workflow_runs/acceptance-20261118/lalli-handoff.json">① 查看 Lalli 候选交接预览 ↗</a>
+      <a href="reports/workflow_runs/acceptance-20261118/lalli-receipt.json">② 查看三条准入回执 ↗</a>
+      <a href="reports/workflow_runs/acceptance-20261118/lalli-validation.json">③ 查看同轮数组校验 ↗</a>
+      <a href="reports/workflow_runs/agent-blind-retest-20261118/anonymous-scores.csv">④ 查看双 Skill 逐项评分 ↗</a>
+    </div>
+  </section>
+  <footer class="closeout">项目汇报依据《梳理 ECE449 项目进度与交付》对话、原始课程任务书与本地项目证据。截图来自已有答辩文件，最新状态以页面的实跑链接为准。</footer>
+</div></main>
+</div>
+<script>
+const links = [...document.querySelectorAll('.guide-toc a')];
+const targets = links.map(link => document.querySelector(link.hash));
+function syncNav() {
+  let active = 0;
+  for (let i = 1; i < targets.length; i++) {
+    if (targets[i].getBoundingClientRect().top <= 122) active = i;
+  }
+  if (window.scrollY > 0 && Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight) active = targets.length - 1;
+  for (const [index, link] of links.entries()) {
+    if (index === active) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
+}
+window.addEventListener('scroll', syncNav, {passive:true});
+window.addEventListener('resize', syncNav);
+syncNav();
+</script>
+</body>
+</html>

@@ -31,7 +31,7 @@ GEO = "GSM4219576"
 GEO_PAGE = f"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={GEO}"
 GEO_SOFT = f"{GEO_PAGE}&targ=self&form=text&view=quick"
 STATIC_ROOTS = {"reports", "skills", "data", "presentation", "scripts"}
-STATIC_TYPES = {".html", ".py", ".md", ".json", ".jsonl", ".txt", ".csv", ".js", ".css", ".png", ".pptx", ".npz", ".xml"}
+STATIC_TYPES = {".html", ".py", ".md", ".json", ".jsonl", ".txt", ".csv", ".js", ".css", ".png", ".jpg", ".pptx", ".npz", ".xml"}
 
 
 
@@ -328,7 +328,7 @@ class Handler(BaseHTTPRequestHandler):
 
         rel = PurePosixPath(route.lstrip("/") or REPORT)
         if any(part.startswith(".") for part in rel.parts) or (
-                rel.as_posix() not in {REPORT, "README.md", "README.txt", "DELIVERY.txt", "requirements-remote.txt",
+                rel.as_posix() not in {REPORT, "task-guide.html", "README.md", "README.txt", "DELIVERY.txt", "requirements.txt", "requirements-remote.txt",
                                       "项目完成逻辑与讲稿.md", "project_report.html"} and
                 (not rel.parts or rel.parts[0] not in STATIC_ROOTS or rel.suffix not in STATIC_TYPES)):
             return self.reply({"error": "未找到文件"}, 404)

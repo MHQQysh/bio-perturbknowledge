@@ -1,0 +1,61 @@
+{
+  "status": "passed",
+  "remote_csv_sha256_matched": 3,
+  "gene_delta_recomputed": true,
+  "shared_control_ids_match": true,
+  "input_keys": [
+    "baseline_array",
+    "cell_line",
+    "row",
+    "target_gene"
+  ],
+  "array_shape": [
+    3,
+    33756
+  ],
+  "independent_conditions": false,
+  "examples": [
+    {
+      "record_id": "lalli2020_Run2_ADNP",
+      "split_group": "GSE142078_GSM4219576_shared_NTC",
+      "Input": {
+        "target_gene": "ADNP",
+        "cell_line": "LUHMES",
+        "baseline_array": "X_control_mean_log1p_cp10k",
+        "row": 0
+      },
+      "Target": {
+        "response_array": "Y_delta_mean_log1p_cp10k",
+        "row": 0
+      }
+    },
+    {
+      "record_id": "lalli2020_Run2_ARID1B",
+      "split_group": "GSE142078_GSM4219576_shared_NTC",
+      "Input": {
+        "target_gene": "ARID1B",
+        "cell_line": "LUHMES",
+        "baseline_array": "X_control_mean_log1p_cp10k",
+        "row": 1
+      },
+      "Target": {
+        "response_array": "Y_delta_mean_log1p_cp10k",
+        "row": 1
+      }
+    },
+    {
+      "record_id": "lalli2020_Run2_CHD8",
+      "split_group": "GSE142078_GSM4219576_shared_NTC",
+      "Input": {
+        "target_gene": "CHD8",
+        "cell_line": "LUHMES",
+        "baseline_array": "X_control_mean_log1p_cp10k",
+        "row": 2
+      },
+      "Target": {
+        "response_array": "Y_delta_mean_log1p_cp10k",
+        "row": 2
+      }
+    }
+  ]
+}

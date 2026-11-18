@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "record_id": "jost2020_g1_1",
+      "gene_vector_alignment": true,
+      "all_gene_delta_recomputed": true,
+      "fractions_within_unit_interval": true
+    },
+    {
+      "record_id": "jost2020_g1_2",
+      "gene_vector_alignment": true,
+      "all_gene_delta_recomputed": true,
+      "fractions_within_unit_interval": true
+    },
+    {
+      "record_id": "jost2020_g1_3",
+      "gene_vector_alignment": true,
+      "all_gene_delta_recomputed": true,
+      "fractions_within_unit_interval": true
+    }
+  ],
+  "model_array_shape": [
+    3,
+    33694
+  ],
+  "verified_download_hashes": [
+    "response_analysis.json",
+    "response_vectors.npz",
+    "control_baseline.csv",
+    "control_sensitivity.csv",
+    "target_effects.csv",
+    "jost2020_g1_1_response.csv",
+    "jost2020_g1_2_response.csv",
+    "jost2020_g1_3_response.csv",
+    "model_arrays.npz",
+    "model_examples.json"
+  ],
+  "execution_entrypoints_succeeded": 2,
+  "notes": "Independent local re-read of actual saved CSV/NPZ; raw-count/H5AD equality checked during remote analysis export."
+}

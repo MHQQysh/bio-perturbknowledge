@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CRISPRi 扰动与响应记录",
+  "description": "一个明确实验背景中的扰动与适用对照比较。验证状态由实际细胞文件和矩阵读取确定。",
+  "type": "object",
+  "required": [
+    "record_id",
+    "study_id",
+    "status",
+    "context",
+    "perturbation",
+    "contrast",
+    "matrix",
+    "provenance"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "description": "唯一记录标识"
+    },
+    "study_id": {
+      "type": "string",
+      "description": "独立原始研究标识，多实验共享同一研究标识"
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "verified",
+        "partial"
+      ],
+      "description": "verified需要真实细胞清单、非空且不重叠的两组细胞和可读取的矩阵联接"
+    },
+    "context": {
+      "type": "object",
+      "description": "细胞背景、批次、时间、处理条件和缺失信息"
+    },
+    "perturbation": {
+      "type": "object",
+      "properties": {
+        "modality": {
+          "const": "CRISPRi"
+        },
+        "target_gene": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "guide_ids": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "identity_resolution": {
+          "enum": [
+            "guide-level",
+            "target-level"
+          ]
+        },
+        "assignment_source": {
+          "type": [
+            "string",
+            "object",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "modality"
+      ]
+    },
+    "contrast": {
+      "type": "object",
+      "required": [
+        "perturbed_cells",
+        "control_cells",
+        "control_rule"
+      ],
+      "properties": {
+        "perturbed_cells": {
+          "$ref": "#/$defs/cells"
+        },
+        "control_cells": {
+          "$ref": "#/$defs/cells"
+        },
+        "control_rule": {
+          "type": [
+            "string",
+            "object"
+          ]
+        },
+        "n_perturbed": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "n_control": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "matrix": {
+      "type": "object",
+      "required": [
+        "path",
+        "format"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "description": "SSHSCY上的实际文件绝对路径"
+        },
+        "format": {
+          "enum": [
+            "h5ad",
+            "10x_h5",
+            "mtx"
+          ]
+        },
+        "layer": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "H5AD真实数据层名称，X为默认表达矩阵"
+        },
+        "scale": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "原始UMI、归一化或其他尺度，未知需明确标注"
+        },
+        "orientation": {
+          "enum": [
+            "cells_by_genes",
+            "genes_by_cells"
+          ]
+        },
+        "barcodes_path": {
+          "type": "string"
+        },
+        "genes_path": {
+          "type": "string"
+        }
+      }
+    },
+    "provenance": {
+      "type": [
+        "object",
+        "array"
+      ],
+      "description": "原始数据链接、源文件校验值、论文和实验条件证据"
+    },
+    "limitations": {
+      "type": "array",
+      "description": "guide粒度、样本范围、重复或字段缺失等实际限制"
+    },
+    "source_record": {
+      "type": "object",
+      "description": "提取Agent的原始记录，保留适配前信息"
+    },
+    "observed_response": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "独立计算的描述性响应。null表示该比较尚无本项目响应计算。"
+    },
+    "model_example": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "显式Input/Target及独立Provenance，缺失时为null。"
+    },
+    "authors_reported_findings": {
+      "type": [
+        "array",
+        "object"
+      ],
+      "description": "作者报告的结论及来源，独立计算响应保存在observed_response。"
+    }
+  },
+  "$defs": {
+    "cells": {
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "object",
+          "required": [
+            "path"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "column": {
+              "type": "string"
+            },
+            "separator": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -14,6 +14,11 @@ cd bio-perturbknowledge
 
 启动器会自动准备 Python 与依赖，并打开 [本机运行台](http://127.0.0.1:8895/#classroom-demo)。首次准备环境和原始数据需要联网，原始数据约 26 MB。后续可复用已下载的数据。保持启动窗口打开。
 
+左侧可以在两页之间切换：
+
+- **课堂演示** · 启动实跑、逐步打开调用回执，或现场抽查不同记录。
+- **任务讲解** · 查看课程要求、双 Skill 流程、对照实验、交付清单和答辩进展。
+
 如果网络阻断 `git clone`，可直接[下载 GitHub 源码 ZIP](https://github.com/MHQQysh/bio-perturbknowledge/archive/refs/heads/main.zip)，完整解压后双击 `Start-ECE449.cmd`。若手头已有包含运行时和 GEO 数据的 Windows 便携包，也可直接解压启动该包。
 
 在页面选择 **DeepSeek API**，粘贴你的 Key，点击 **启动演示**。只想走一遍流程时可选 **课堂固定流程**。矩阵计算在本机进行，无需 SSH 或 Codex。
